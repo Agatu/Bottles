@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Materiał:</strong>
+  <%= @bottle.material %>
+</p>
+
+<p>
+  <strong>Rozmiar:</strong>
+  <%= @bottle.size %>
+</p>
+
+<p>
+  <strong>Cena:</strong>
+  <%= @bottle.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_bottle_path(@bottle) %> |
+<%= link_to 'Back', bottles_path %>

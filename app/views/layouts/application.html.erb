@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bottles</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;700&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+  <div class="mx-auto main-container" style="width: 70%;">
+
+       <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> |
+
+          <%# @wallet = Wallet.find(params[:id]) %>
+ <%# <% for wallet in @wallets %>
+            <%# <li><%= link_to wallet.name, wallet %>
+        <%# <% end %>
+
+          <%# <%= link_to 'My wallet', current_user_wallet_path, :class => 'navbar-link' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+        <% end %>
+      </p>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+   
+     <div class="<%= @page %>-page">
+       <div class="row page-container">
+         <div class="col-12">
+            <%= render "layouts/title" %>
+         </div>
+        </div>
+     </div>
+  <div class="content-wrapper">
+    <%= yield %>
+  </div>
+
+  </body>
+</html>
