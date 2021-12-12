@@ -1,15 +1,16 @@
 <% @basket_items.each do |item| %>
 <p><%= item.bottle.material%></p>
 <p><%= item.bottle.size %></p>
-<p><%= item.bottle.price %></p>
+<p><%= item.bottle.price %> zł</p>
 <%= form_with model: item do |f| %>
 <%= f.hidden_field :bottle_id, value: item.bottle.id %>
 <%= f.number_field :quantity, value: item.quantity.to_i%>
 <%= f.submit "Dodaj do portfela" %>
-<%= link_to "Usuń z koszyka", item, method: :delete, remote: true %>
 <% end %>
+<button><%= link_to "Usuń z koszyka", item, method: :delete %></button>
 <p>Subtotal: <%= item.total %></p>
 <% end %>
 
-<p><strong>W twoim portfelu obecnie jest: <%= current_basket.subtotal %> zł</strong></p>
-
+<p><strong>W twoim koszyku obecnie jest: <%= current_basket.subtotal %> zł</strong></p>
+<button id="add_to_wallet">Dodaj całość do mojego portfela</button>
+<%= link_to 'Back', bottles_path %>

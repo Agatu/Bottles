@@ -30,7 +30,7 @@
             <%# <li><%= link_to wallet.name, wallet %>
         <%# <% end %>
 
-          <%# <%= link_to 'My wallet', current_user_wallet_path, :class => 'navbar-link' %>
+          <%= link_to "My wallet", "wallets/show", :class => 'navbar-link' %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>

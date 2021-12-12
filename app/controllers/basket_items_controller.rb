@@ -1,23 +1,26 @@
 class BasketItemsController < ApplicationController
   before_action :set_basket
-
+  before_action :authenticate_user!, except: [:create, :destroy]
   
   def create
     @basket_item = @basket.basket_items.new(basket_params)
     @basket.save
     session[:basket_id] = @basket.id
+    redirect_to "/cart"
   end
 
   def update
     @basket_item = @basket.basket_items.find(params[:id])
     @basket_item.update(basket_params)
     @basket_items = current_basket.basket_items
+    redirect_to "/cart"
   end
 
   def destroy
     @basket_item = @basket.basket_items.find(params[:id])
     @basket_item.destroy
     @basket_items = current_basket.basket_items
+    redirect_to "/cart"
   end
 
   private

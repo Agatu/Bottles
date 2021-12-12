@@ -1,11 +1,22 @@
 class WalletsController < ApplicationController
-  # before_action :set_wallet, only: %i[ edit update destroy ]
-
+  before_action :authenticate_user!
 
   def show
-    @wallet = wallet[:user_id]
-  
   end
+
+  def update
+    @wallet = wallet[:user_id].add_money
+  end
+
+
+  def add_money
+    @wallet = wallet.find(params[:id])
+    @wallet = wallet.total_amount + current_basket.subtotal
+  end
+
+
+
+
 
 
   # def create

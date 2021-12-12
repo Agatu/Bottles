@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :wallet
+  # has_one :wallet
 
   after_create do |user|
     user.wallet.create
