@@ -10,7 +10,7 @@ class BasketItemsController < ApplicationController
 
   def update
     @basket_item = @basket.basket_items.find(params[:id])
-    @basket_item.update_attributes(basket_params)
+    @basket_item.update(basket_params)
     @basket_items = current_basket.basket_items
   end
 

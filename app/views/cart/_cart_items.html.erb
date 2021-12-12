@@ -5,8 +5,8 @@
 <%= form_with model: item do |f| %>
 <%= f.hidden_field :bottle_id, value: item.bottle.id %>
 <%= f.number_field :quantity, value: item.quantity.to_i%>
-<%= f.submit "Update Cart" %>
-<%= link_to "Remove Items", item, method: :delete, remote: true %>
+<%= f.submit "Dodaj do portfela" %>
+<%= link_to "Usuń z koszyka", item, method: :delete, remote: true %>
 <% end %>
 <p>Subtotal: <%= item.total %></p>
 <% end %>

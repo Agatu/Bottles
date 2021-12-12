@@ -3,8 +3,8 @@ class WalletsController < ApplicationController
 
 
   def show
-    # @basket_items = current_basket.basket_items
-    # @wallet = current_user.wallet
+    @wallet = wallet[:user_id]
+  
   end
 
 

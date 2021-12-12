@@ -1,40 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Butelki, które możesz zwrócić</h1>
+<h2>Butelki, które możesz zwrócić</h2>
 
-<table>
-  <thead>
+  <%# <thead>
     <tr>
       <th>Materiał</th>
       <th>Rozmiar</th>
       <th>Cena</th>
-      <%# <th colspan="3"></th> %>
+
     </tr>
-  </thead>
+  </thead>  %>
 
   <tbody>
+  <div class="row">
+ 
     <% @bottles.each do |bottle| %>
-      <tr>
-        <td><%= bottle.material %></td>
-        <td><%= bottle.size %></td>
-        <td><%= bottle.price %></td>
-         
-        <td><%= form_with model: @basket_item do |f| %> 
-         <%= f.hidden_field :bottle_id, value: bottle.id %> 
+    
+        <p><%= bottle.material %></p>
+        <p><%= bottle.size %></p>
+        <p>Cena: <%= bottle.price %> zł</p>
+         <%= form_with model: @basket_item do |f| %>
+         <%= f.hidden_field :bottle_id, value: bottle.id %>
          <%= f.number_field :quantity, value: 0, min: 1 %> 
-         <%= f.submit "Add To Cart" %> 
+         <%= f.submit "Dodaj do koszyka" %>
          <% end  %>
-        </td>
-        <td><%= link_to 'Show', bottle %></td>
-        <td><%= link_to 'Edit', edit_bottle_path(bottle) %></td>
-        <td><%= link_to 'Destroy', bottle, method: :delete, data: { confirm: 'Jesteś pewnien?' } %></td>
-      </tr>
+  
+        <div><%= link_to 'Show', bottle %></div>
+        <div><%= link_to 'Edit', edit_bottle_path(bottle) %></div>
+        <div><%= link_to 'Destroy', bottle, method: :delete, data: { confirm: 'Jesteś pewnien?' } %></div>
+  
     <% end %>
+
+  </div>
   </tbody>
-</table>
 
 <br>
-
 <%= link_to 'New Bottle', new_bottle_path %>
 <br>
 <%= link_to 'Back', root_path %>

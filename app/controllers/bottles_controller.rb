@@ -66,6 +66,6 @@ class BottlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bottle_params
-      params.require(:bottle).permit(:material, :size, :price)
+      params.require(:bottle).permit(:material, :size, :price, :id)
     end
 end
