@@ -5,12 +5,18 @@
 <%= form_with model: item do |f| %>
 <%= f.hidden_field :bottle_id, value: item.bottle.id %>
 <%= f.number_field :quantity, value: item.quantity.to_i%>
-<%= f.submit "Dodaj do portfela" %>
+<%# <%= f.submit "Dodaj do portfela" %>
 <% end %>
 <button><%= link_to "Usuń z koszyka", item, method: :delete %></button>
 <p>Subtotal: <%= item.total %></p>
 <% end %>
 
 <p><strong>W twoim koszyku obecnie jest: <%= current_basket.subtotal %> zł</strong></p>
-<button id="add_to_wallet">Dodaj całość do mojego portfela</button>
+
+<%= form_for current_user.wallet, url: add_money_wallet_path do |f| %>
+
+<%= f.submit "Dodaj całość do mojego portfela" %>
+<%= session[:cart_id] %>
+<% end %>
+
 <%= link_to 'Back', bottles_path %>

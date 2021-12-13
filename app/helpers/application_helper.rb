@@ -10,4 +10,6 @@ Rack::MiniProfiler.config.start_hidden = true
             Basket.find_by_id(session[:basket_id])
         end
     end
+
+
 end

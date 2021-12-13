@@ -18,6 +18,14 @@ Rails.application.routes.draw do
   resources :pages, :only => [:home, :idea]
   
   resources :wallets
+  resources :wallets do
+    member do
+      get 'add_money'
+    end
+  end
+
+  # get 'wallet', to: 'wallets#show'
+
   # get 'wallets/show'  
   # get 'wallets/wallet'  
 
