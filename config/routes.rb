@@ -18,16 +18,21 @@ Rails.application.routes.draw do
   resources :pages, :only => [:home, :idea]
   
   resources :wallets
-  resources :wallets do
+  resource :wallet
+    resolve('Wallet') {[:wallet]}
+
+  patch 'wallet/:id', to: 'wallets#add_money' 
+
+  resource :wallet do
     member do
       get 'add_money'
     end
   end
 
-  # get 'wallet', to: 'wallets#show'
 
-  # get 'wallets/show'  
-  # get 'wallets/wallet'  
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  

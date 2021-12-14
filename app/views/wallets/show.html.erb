@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 
-<p><strong>Zgromadziłeś już: </strong>
-<%# <% if @wallet.user == current_user %>
-<%# <% @wallet = current_user.wallet %>
-  <%= @wallet.total_amount %> zł</p>
-  <% end%>
+<p><strong>Obecnie masz w swoim portfelu: 
+
+  <% @wallet = current_user.wallet %>
+  <%= @wallet.total_amount %> zł</strong></p>
 <br>
 <%= link_to 'Back', bottles_path %>
