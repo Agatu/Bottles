@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # get 'cart/show'
+ 
+  resources :bottles
+  resources :pages, :only => [:home, :idea]
+  
+  post 'bottles/index'
+
   resources :basket_items
   resources :basket
   get 'cart', to: 'cart#show'
@@ -12,10 +17,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
  
-  post 'bottles/index'
-
-  resources :bottles
-  resources :pages, :only => [:home, :idea]
   
   resources :wallets
   resource :wallet

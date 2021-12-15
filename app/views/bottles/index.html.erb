@@ -15,7 +15,7 @@
   <div class="row">
  
     <% @bottles.each do |bottle| %>
-    
+        <p><%= bottle.image %></p>
         <p><%= bottle.material %></p>
         <p><%= bottle.size %></p>
         <p>Cena: <%= bottle.price %> zł</p>
@@ -28,7 +28,6 @@
         <div><%= link_to 'Show', bottle %></div>
         <div><%= link_to 'Edit', edit_bottle_path(bottle) %></div>
         <div><%= link_to 'Destroy', bottle, method: :delete, data: { confirm: 'Jesteś pewnien?' } %></div>
-  
     <% end %>
 
   </div>
