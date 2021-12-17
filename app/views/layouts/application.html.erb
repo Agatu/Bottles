@@ -11,46 +11,40 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
   </head>
 
   <body>
+    <main class="mx-auto main-container">
 
-  <div class="mx-auto main-container" style="width: 70%;">
-
-       <p class="navbar-text pull-right">
+      <nav class="navbar-text">
         <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> |
-          <%= link_to "My wallet", wallet_path(:wallet_id), :class => 'navbar-link' %>
-
-      
+          Zalogowany jako <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edytuj profil', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %> |
+          <%= link_to "Mój portfel", wallet_path(:wallet_id), :class => 'navbar-link' %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+          <%= link_to "Rejestracja", new_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link' %>
         <% end %>
-      </p>
+      </nav>
 
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
-   
-     <div class="<%= @page %>-page">
-       <div class="row page-container">
-         <div class="col-12">
-            <%= render "layouts/title" %>
-         </div>
-        </div>
-     </div>
-  <div class="content-wrapper">
-    <%= yield %>
-  </div>
-
+      <div class="neon-btls"></div>
+      <div class="main-title">
+        <%= render "layouts/title" %>
+      </div>
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+    </main>
+    
+    <footer></footer> 
   </body>
 </html>

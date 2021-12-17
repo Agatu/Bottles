@@ -15,7 +15,7 @@ class WalletsController < ApplicationController
   def add_money
     @wallet = current_user.wallet
     @wallet.update(total_amount: @wallet.total_amount + current_basket.subtotal)
-    @wallet.carts << current_basket.subtotal
+    # @wallet.carts << current_basket.subtotal
     session.delete(:basket_id)
     redirect_to "/wallet" 
   end

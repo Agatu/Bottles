@@ -1,7 +1,7 @@
 class BottlesController < ApplicationController
   before_action :set_bottle, only: %i[ show edit update destroy ]
-  # before_action :authenticate_user!, except: [:index, :show, :new, :create, :destroy]
-  # before_action :check_logged_in, :only => [:new, :create, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :check_logged_in, :only => [:new, :create, :destroy]
 
   # GET /bottles or /bottles.json
   def index
@@ -59,11 +59,15 @@ class BottlesController < ApplicationController
     end
   end
 
-  # def check_logged_in
-  #   authenticate_or_request_with_http_basic("Ads") do |email, password|
-  #   email == "admin@admin.pl" && password == "admins"
-  #   end
-  # end
+  def check_logged_in
+    authenticate_or_request_with_http_basic("Ads") do |email, password|
+    email == "admin@admin.pl" && password == "admins"
+    end
+  end
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

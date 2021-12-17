@@ -2,8 +2,7 @@
 
 
 <p><strong>Obecnie masz w swoim portfelu: 
-
   <% @wallet = current_user.wallet %>
   <%= @wallet.total_amount %> zł</strong></p>
 <br>
-<%= link_to 'Back', bottles_path %>
+<div class="link"><%= link_to 'Powrót', bottles_path %></div>

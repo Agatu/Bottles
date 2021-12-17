@@ -21,9 +21,16 @@
 
 * {
     font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    color: var(--main-grey);
 }
 
-
+:root {
+    --main-green: #00bb92;
+    //    color: #24CF9B;
+    --main-red: #f2332c;
+    --main-grey: #929292;
+}
 
 body {
     width: 100vw;
@@ -36,22 +43,40 @@ body {
 }
 
 .main-container {
+    width: 70vw;
     min-height: 100vh;
     padding: 1% 0;
-
-    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    color: white;
 }
 
 .navbar-text {
-    margin-left: 20px;
+    // position: fixed;
+    top: 0;
+    left: 15vw;
+    height: 7vh;
+    width: 70vw;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.neon-btls {
+    margin-top: 7vh;
+    height: 40vh;
+    background-size: 100%, 100%;
+    background-image: url("../neon-btls.jpg");
+    // background-attachment: fixed;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    z-index: 3;
+
 }
 
 .title-card {
     width: 100%;
     text-align: center;
     background-color: rgba($color: #000000, $alpha: 0.9);
-
-
 }
 
 .title-text a {
@@ -59,8 +84,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     padding: 0;
-    color: rgb(11, 218, 176);
-
+    color: var(--main-green);
 }
 
 .content-wrapper {
@@ -69,24 +93,69 @@ body {
 
 .content-subtitles {
     font-size: 200%;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
-
 }
 
 .content-subtitles a {
     text-decoration: none;
-    color: black;
+    color: var(--main-green);
 
 }
 
 .subtitle {
     margin: 5% 0%;
     padding: 1%;
-
 }
 
 .subtitle a:hover {
     font-weight: 700;
+    color: var(--main-red);
+}
 
+.btn input {
+    display: inline-block;
+    margin: 0;
+    padding: 5px;
+    background-color: var(--main-green);
+    border: 2px solid white;
+    // box-shadow: 5px, 5px, 10px;
+
+    border-radius: 7px;
+    color: black;
+}
+
+div.link a {
+    // background-color: rgb(2, 197, 145);
+    // border: 2px black 2px;
+    text-decoration: none;
+    color: var(--main-green);
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-green);
+}
+
+a:hover {
+    color: var(--main-red);
+}
+
+@keyframes links {
+
+    0% {
+        color: var(--main-green);
+    }
+
+    10% {}
+
+    20% {}
+
+    50% {}
+
+    80% {}
+
+    100% {
+        color: var(--main-red);
+    }
 }
