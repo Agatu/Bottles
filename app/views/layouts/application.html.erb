@@ -18,6 +18,7 @@
     <main class="mx-auto main-container">
 
       <nav class="navbar-text">
+        <%= link_to "", root_path, :class => 'navbar-link' %>
         <% if user_signed_in? %>
           Zalogowany jako <strong><%= current_user.email %></strong>.
           <%= link_to 'Edytuj profil', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -36,15 +37,18 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
-      <div class="neon-btls"></div>
-      <div class="main-title">
+ <div class="title-img">
+    <div class="neon-btls">
+    </div>
+</div>
+    <div class="main-title">
         <%= render "layouts/title" %>
-      </div>
+    </div>
+
       <div class="content-wrapper">
         <%= yield %>
       </div>
+    <footer><div>&copy; Agata Adamczewska 2021</div></footer> 
     </main>
-    
-    <footer></footer> 
   </body>
 </html>

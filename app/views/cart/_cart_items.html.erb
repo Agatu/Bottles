@@ -1,3 +1,4 @@
+<div class="cart">
 <% @basket_items.each do |item| %>
 <p><%= item.bottle.material%></p>
 <p><%= item.bottle.size %></p>
@@ -9,12 +10,13 @@
 <button><%= link_to "Usuń z koszyka", item, method: :delete %></button>
 <p>Subtotal: <%= item.total %></p>
 <% end %>
-
+<div class="wallet">
 <p><strong>W twoim koszyku obecnie jest: <%= current_basket.subtotal %> zł</strong></p>
 <%= form_for current_user.wallet, url: add_money_wallet_path do |f| %>
-
-<%= f.submit "Dodaj całość do mojego portfela" %>
+</div>
+<div class="btn add-to-wallet"> <%= f.submit "Dodaj całość do mojego portfela" %></div>
 <%= session[:basket_id] %>
 <% end %>
 
-<%= link_to 'Back', bottles_path %>
+<%= link_to 'Powrót', bottles_path %>
+</div>

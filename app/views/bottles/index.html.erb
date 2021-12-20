@@ -4,8 +4,8 @@
 
   <div class="row">
     <% @bottles.each do |bottle| %>
-      <div class="btl col">
-        <p><%= image_tag(bottle.image, style:'width:20%') %></p>
+      <div class="bottle-wrapper">
+        <div class="img-btl"><%= image_tag(bottle.image, style: 'background-color:var(--main-green)') %></div>
         <p><%= bottle.material %></p>
         <p><%= bottle.size %></p>
         <p>Cena: <%= bottle.price %> zł</p>
@@ -18,8 +18,9 @@
         <div class="link"><%= link_to 'Pokaż', bottle %></div>
         <div class="link"><%= link_to 'Edytuj', edit_bottle_path(bottle) %></div>
         <div class="link"><%= link_to 'Usuń', bottle, method: :delete, data: { confirm: 'Jesteś pewnien?' } %></div>
+      </div>
     <% end %>
-  </div>
+  
   </div>
 
 <br>

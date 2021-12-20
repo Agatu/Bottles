@@ -1,8 +1,10 @@
+<div class="wallet">
+
 <p id="notice"><%= notice %></p>
 
-
-<p><strong>Obecnie masz w swoim portfelu: 
+<h3>Obecnie masz w swoim portfelu: 
   <% @wallet = current_user.wallet %>
-  <%= @wallet.total_amount %> zł</strong></p>
-<br>
-<div class="link"><%= link_to 'Powrót', bottles_path %></div>
+  <%= @wallet.total_amount %> zł <h3>
+</div>
+<div class="link"><p><%= link_to 'Powrót', bottles_path %></p></div>
+
